@@ -45,30 +45,6 @@ public class IndexController {
     	return model;
     }
     
-    @RequestMapping(value = "/new-team", method = RequestMethod.GET)
-    public ModelAndView newTeam() {
-    	ModelAndView model = new ModelAndView("new-team");
-    	model.addObject("createTeamForm", new CreateTeamForm());    	
-        return model;
-    }
-    
-    @RequestMapping(value = "/createTeam", method = RequestMethod.POST)
-    public ModelAndView createTeam(@Valid CreateTeamForm createTeamForm, BindingResult result, RedirectAttributes redirectAttributes) {
-    	ModelAndView model;    	
-    	if (!result.hasErrors()) {
-            try {
-            	sampleService.saveFrom(createTeamForm);
-            	model = new ModelAndView("team-created");
-            } catch (InvalidUserException e) {
-            	model = new ModelAndView("new-team");
-            	model.addObject("page_error", e.getMessage());
-            }
-        } else {
-        	model = new ModelAndView("new-team");
-        }   	
-    	return model;
-    }
-    
     @RequestMapping(value = "/security-error", method = RequestMethod.GET)
     public String securityError(RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("page_error", "You do have have permission to do that!");
