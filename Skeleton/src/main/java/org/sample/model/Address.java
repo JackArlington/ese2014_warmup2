@@ -14,8 +14,7 @@ public class Address {
 	    private Long id;
 
 	    private String street;
-	    
-
+	   
 
 		public Long getId() {
 			return id;

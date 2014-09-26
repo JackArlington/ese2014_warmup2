@@ -3,6 +3,7 @@ package org.sample.controller;
 import javax.validation.Valid;
 
 import org.sample.controller.exceptions.InvalidUserException;
+import org.sample.controller.pojos.CreateTeamForm;
 import org.sample.controller.pojos.SignupForm;
 import org.sample.controller.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,30 @@ public class IndexController {
             }
         } else {
         	model = new ModelAndView("index");
+        }   	
+    	return model;
+    }
+    
+    @RequestMapping(value = "/new-team", method = RequestMethod.GET)
+    public ModelAndView newTeam() {
+    	ModelAndView model = new ModelAndView("new-team");
+    	model.addObject("createTeamForm", new CreateTeamForm());    	
+        return model;
+    }
+    
+    @RequestMapping(value = "/createTeam", method = RequestMethod.POST)
+    public ModelAndView createTeam(@Valid CreateTeamForm createTeamForm, BindingResult result, RedirectAttributes redirectAttributes) {
+    	ModelAndView model;    	
+    	if (!result.hasErrors()) {
+            try {
+            	sampleService.saveFrom(createTeamForm);
+            	model = new ModelAndView("team-created");
+            } catch (InvalidUserException e) {
+            	model = new ModelAndView("new-team");
+            	model.addObject("page_error", e.getMessage());
+            }
+        } else {
+        	model = new ModelAndView("new-team");
         }   	
     	return model;
     }
