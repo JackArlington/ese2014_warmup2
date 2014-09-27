@@ -25,6 +25,9 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
+        <a href="http://localhost:8080/Skeleton">New User</a><br />
+        <a href="http://localhost:8080/Skeleton/new-team">New Team</a><br />
+        <a href="http://localhost:8080/Skeleton/profile?userId=1">Profile of User 1</a><br />
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
