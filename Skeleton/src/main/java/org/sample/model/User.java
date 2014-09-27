@@ -21,6 +21,8 @@ public class User {
     @OneToOne(cascade = {CascadeType.ALL})
     private Address address; 
     
+    private Team team;
+    
     public Long getId() {
         return id;
     }
@@ -59,6 +61,14 @@ public class User {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
 	}
 
     

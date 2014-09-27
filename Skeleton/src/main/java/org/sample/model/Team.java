@@ -16,6 +16,7 @@ public class Team {
 	private String teamName;
 	private Date createDate;   
 
+	
 	public Long getId() {
 		return id;
 	}
