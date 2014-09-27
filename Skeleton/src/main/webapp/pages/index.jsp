@@ -39,13 +39,13 @@
                 <form:errors path="lastName" cssClass="help-inline" element="span"/>
             </div>
         </div>
-        <c:set var="teamError"><form:errors path="team"/></c:set>
-        <div class="control-group<c:if test="${not empty teamErrors}"> error</c:if>">
-            <label class="control-label" for="field-team">Team</label>
+        <c:set var="teamIdError"><form:errors path="teamId"/></c:set>
+        <div class="control-group<c:if test="${not empty teamIdErrors}"> error</c:if>">
+            <label class="control-label" for="field-teamId">Team</label>
             <div class="controls">
-                <form:select path="team" id="field-lteam" tabindex="4" maxlength="35">
+                <form:select path="teamId" id="field-teamId" tabindex="4" maxlength="35">
 	                <form:options items="${teamList}" itemValue="id" itemLabel="teamName" />
-	                <form:errors path="team" cssClass="help-inline" element="span"/>
+	                <form:errors path="teamId" cssClass="help-inline" element="span"/>
 	            </form:select>
             </div>
         </div>
